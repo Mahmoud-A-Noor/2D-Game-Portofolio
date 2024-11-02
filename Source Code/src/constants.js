@@ -17,7 +17,7 @@ export const dialogueData = {
     
     bed: `This where I sleep. Great ideas comes when I'm lying on my bed. When an idea strikes, I often have to write it down or else I won't be able to sleep because my mental energy is consumed by it.`,
     
-    resume: `This is my desk and on it is my resume. <a href="https://drive.usercontent.google.com/download?id=1Q3wUdnI7eZG2xvTHs1jwk1VmbtV_BWh2&export=download&authuser=0" target="_blank">Check it out?</a>
+    resume: `This is my desk and on it is my resume. <a href="https://drive.google.com/file/d/1Q3wUdnI7eZG2xvTHs1jwk1VmbtV_BWh2/view" target="_blank">Check it out?</a>
     Contact me at mahmoudnoor917@gmail.com if you have any interesting job opportunities!`,
     
     projects: `Well I've created many projects using many programming languages and technologies. 
