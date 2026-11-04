@@ -2,21 +2,92 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Game Portofolio</title>
-    <script type="module" crossorigin src="./assets/index-aPV4iEW7.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-j2saRK2l.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="description" content="Walk around Mahmoud Ahmed Noor Eldin's 2D portfolio: a pixel-art room and a tech street about AI agents, LLM systems, real-time voice and cloud infrastructure." />
+    <meta name="author" content="Mahmoud Ahmed Noor Eldin" />
+    <meta property="og:title" content="Mahmoud's 2D Portfolio" />
+    <meta property="og:description" content="A tiny pixel-art world about AI agents, backend engineering and cloud infrastructure. Walk around and explore." />
+    <link rel="icon" href="./favicon.ico" />
+    <style>
+      /* declared here so the font URL resolves relative to the page in both dev and the built site */
+      @font-face {
+        font-family: monogram;
+        src: url(./monogram.ttf);
+      }
+    </style>
+    <title>Mahmoud Ahmed Noor Eldin · 2D Portfolio</title>
+    <script type="module" crossorigin src="./assets/index-BIrd-iZe.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-bcncod1a.css">
   </head>
-  <body>
+  <body class="ui-open">
     <div id="app">
       <div id="ui">
-        <p class="note">Tap/Click around to move</p>
-        <div id="textbox-container">
-          <div class="textbox">
-            <p id="dialogue" class="ui-text"></p>
-            <div class="btn-container">
-              <button id="close" class="ui-close-btn">Close</button>
+        <!-- Heads-up display -->
+        <div id="hud">
+          <div class="hud-card">
+            <div class="hud-name">Mahmoud Ahmed Noor Eldin</div>
+            <div class="hud-role">Software Engineer · AI Agents &amp; Backend</div>
+            <div class="hud-progress">
+              <span>Explored <strong id="progress-count">0/0</strong></span>
+              <div class="progress-track"><div id="progress-bar" class="progress-fill"></div></div>
             </div>
+            <div class="hud-links">
+              <a href="https://mahmoud-a-noor.github.io" target="_blank" rel="noreferrer">Portfolio</a>
+              <a href="https://github.com/Mahmoud-A-Noor" target="_blank" rel="noreferrer">GitHub</a>
+              <a href="https://www.linkedin.com/in/mahmoud-a-noor/" target="_blank" rel="noreferrer">LinkedIn</a>
+              <a href="https://drive.google.com/file/d/1hHMZAsWB0dOkART9MrdZVCGUWAkc1kfP/view?usp=sharing" target="_blank" rel="noreferrer">CV</a>
+            </div>
+          </div>
+          <button id="help-btn" class="pixel-btn small" type="button" aria-label="Controls">?</button>
+        </div>
+
+        <p id="location" class="location-tag"></p>
+        <div id="toast" class="toast" role="status"></div>
+
+        <!-- Dialogue box -->
+        <div id="textbox-container">
+          <div class="textbox pixel-panel">
+            <div class="textbox-title" id="dialogue-title"></div>
+            <p id="dialogue" class="ui-text"></p>
+            <div class="textbox-footer">
+              <span id="dialogue-hint" class="hint"></span>
+              <button id="close" class="pixel-btn" type="button">Close</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Start screen -->
+        <div id="intro" class="overlay open">
+          <div class="pixel-panel intro-panel">
+            <p class="intro-kicker">Welcome to</p>
+            <h1 class="intro-title">Mahmoud's 2D Portfolio</h1>
+            <p class="intro-text">
+              I am a software engineer building AI agents for text, voice and phone calls.
+              Walk around my room, then head out the door to explore the tech I work with.
+            </p>
+            <ul class="controls">
+              <li><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> or arrow keys to move</li>
+              <li>or click / tap where you want to go</li>
+              <li>walk into objects and people to talk</li>
+              <li><kbd>E</kbd> / <kbd>Enter</kbd> to continue, <kbd>Esc</kbd> to close</li>
+            </ul>
+            <button id="start" class="pixel-btn primary" type="button">Start exploring</button>
+          </div>
+        </div>
+
+        <!-- Help overlay -->
+        <div id="help" class="overlay">
+          <div class="pixel-panel intro-panel">
+            <h2 class="intro-title small">Controls</h2>
+            <ul class="controls">
+              <li><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> or arrow keys to move</li>
+              <li>click or tap to walk somewhere</li>
+              <li>walk into highlighted objects to interact</li>
+              <li><kbd>E</kbd> / <kbd>Enter</kbd> / click: skip typing, then close</li>
+              <li><kbd>Esc</kbd> closes any box</li>
+              <li>the door in the room leads outside; the house door outside leads back</li>
+            </ul>
+            <button id="help-close" class="pixel-btn primary" type="button">Got it</button>
           </div>
         </div>
       </div>
